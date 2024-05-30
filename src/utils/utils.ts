@@ -1,4 +1,5 @@
 import {Dimensions} from 'react-native';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 const heightMobileUI = 896;
 const widthMobileUI = 414;
@@ -12,3 +13,5 @@ export const respHeight = (height: number) => {
 };
 
 export const deviceWidth = Dimensions.get('screen').width;
+
+export const statusBarHeight = getStatusBarHeight();

@@ -1,12 +1,19 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../theme/colors';
-import {respHeight, respSize} from '../../utils/utils';
+import {respHeight, respSize, statusBarHeight} from '../../utils/utils';
+
+/**
+ * @description
+ * 196 total - 36 to get header height from header
+ * Subtracting status bar height as it is included in 192
+ */
+const headerHeight = 196 - 36 - statusBarHeight;
 
 export const styles = StyleSheet.create({
   mainView: {
-    marginHorizontal: respSize(30),
+    paddingHorizontal: respSize(30),
     zIndex: 3,
-    height: respHeight(156),
+    height: respHeight(headerHeight),
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',

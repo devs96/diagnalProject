@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../theme/colors';
-import {respHeight} from '../../utils/utils';
+import {respHeight, statusBarHeight} from '../../utils/utils';
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   navBarImg: {
     position: 'absolute',
     // 192 total - 36 margin = 156
-    top: respHeight(156),
+    top: respHeight(156 - statusBarHeight),
     height: respHeight(36),
     alignSelf: 'center',
     width: '100%',
