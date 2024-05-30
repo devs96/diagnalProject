@@ -1,6 +1,6 @@
 export const imageSources = {
   back: require('./back.png'),
-  navBar: require('./nav_bar.png'),
+  navBar: require('./navBar.png'),
   placeholder: require('./placeholder.png'),
   search: require('./search.png'),
   poster1: require('./poster1.jpg'),
