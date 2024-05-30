@@ -26,7 +26,7 @@ const Header: FC<HeaderProps> = ({onSearch, onSearchPress, isSearchActive}) => {
             placeholder="Enter search value"
             placeholderTextColor={colors.grey}
             style={styles.inputField}
-            maxLength={20}
+            maxLength={15}
             onChangeText={onSearch}
           />
         </View>

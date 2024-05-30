@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../theme/colors';
+import {appFonts, fontSizes} from '../../utils/fontUtils';
 import {deviceWidth, respHeight} from '../../utils/utils';
 
 /**
@@ -25,9 +26,9 @@ export const styles = StyleSheet.create({
   },
   movieName: {
     color: colors.white,
-    fontSize: 16,
+    fontSize: fontSizes.regular,
     marginTop: respHeight(24),
     width: itemWidth,
-    fontFamily: 'TitilliumWeb-Regular',
+    fontFamily: appFonts.regular,
   },
 });

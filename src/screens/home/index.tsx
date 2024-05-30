@@ -4,6 +4,7 @@ import {
   Image,
   Keyboard,
   StatusBar,
+  Text,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
@@ -62,7 +63,7 @@ const Home = () => {
   };
 
   const onSearch = (text: string) => {
-    if (text.length >= 2) {
+    if (text.length > 1) {
       const filtered = movieData.filter(val =>
         val.name.toLowerCase().includes(text.trim().toLowerCase()),
       );
@@ -95,6 +96,9 @@ const Home = () => {
           }}
           onEndReached={onEndReached}
           onEndReachedThreshold={0.4}
+          ListEmptyComponent={() => (
+            <Text style={styles.noResultsText}>No results</Text>
+          )}
         />
       </TouchableWithoutFeedback>
     </View>

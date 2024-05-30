@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../theme/colors';
+import {fontSizes} from '../../utils/fontUtils';
 import {respHeight, respSize, statusBarHeight} from '../../utils/utils';
 
 /**
@@ -24,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     color: colors.white,
-    fontSize: respSize(18),
+    fontSize: fontSizes.medium,
   },
   img: {
     height: respHeight(20),

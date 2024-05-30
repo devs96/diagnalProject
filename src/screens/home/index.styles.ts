@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../theme/colors';
+import {appFonts, fontSizes} from '../../utils/fontUtils';
 import {respHeight, statusBarHeight} from '../../utils/utils';
 
 export const styles = StyleSheet.create({
@@ -19,5 +20,11 @@ export const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: respHeight(36),
     zIndex: 1,
+  },
+  noResultsText: {
+    color: colors.white,
+    fontFamily: appFonts.bold,
+    textAlign: 'center',
+    fontSize: fontSizes.medium,
   },
 });
