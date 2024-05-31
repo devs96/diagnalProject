@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../theme/colors';
-import {appFonts, fontSizes} from '../../utils/fontUtils';
+import {AppFonts, FontSizes} from '../../utils/fontUtils';
 import {deviceWidth, respHeight} from '../../utils/utils';
 
 /**
@@ -26,9 +26,9 @@ export const styles = StyleSheet.create({
   },
   movieName: {
     color: colors.white,
-    fontSize: fontSizes.regular,
+    fontSize: FontSizes.regular,
     marginTop: respHeight(24),
     width: itemWidth,
-    fontFamily: appFonts.regular,
+    fontFamily: AppFonts.regular,
   },
 });

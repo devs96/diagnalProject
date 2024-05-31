@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../theme/colors';
-import {appFonts, fontSizes} from '../../utils/fontUtils';
+import {AppFonts, FontSizes} from '../../utils/fontUtils';
 import {respHeight, statusBarHeight} from '../../utils/utils';
 
 export const styles = StyleSheet.create({
@@ -23,8 +23,8 @@ export const styles = StyleSheet.create({
   },
   noResultsText: {
     color: colors.white,
-    fontFamily: appFonts.bold,
+    fontFamily: AppFonts.bold,
     textAlign: 'center',
-    fontSize: fontSizes.medium,
+    fontSize: FontSizes.medium,
   },
 });
