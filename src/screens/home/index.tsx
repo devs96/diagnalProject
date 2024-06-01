@@ -8,10 +8,12 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import Orientation, {OrientationType} from 'react-native-orientation-locker';
 import {imageSources} from '../../assets/images';
 import Header from '../../components/Header';
 import MovieView from '../../components/MovieView';
 import {colors} from '../../theme/colors';
+import {deviceHeight, deviceWidth} from '../../utils/utils';
 import {styles} from './index.styles';
 import {ApiDataModal, MovieDataModal} from './types';
 
@@ -20,6 +22,28 @@ const Home = () => {
   const [filteredData, setFilteredData] = useState<MovieDataModal[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
+  const [numberOfColumns, setNumberOfColumns] = useState<number>(3);
+  const [viewWidth, setViewWidth] = useState<number>(deviceWidth);
+
+  useEffect(() => {
+    Orientation.addOrientationListener(orientation => {
+      if (
+        orientation === OrientationType['LANDSCAPE-LEFT'] ||
+        orientation === OrientationType['LANDSCAPE-RIGHT']
+      ) {
+        // Assuming column would be 6 when changed to landscape
+        setNumberOfColumns(6);
+        // Getting view width of the device
+        setViewWidth(deviceHeight);
+      } else if (orientation === OrientationType.PORTRAIT) {
+        setNumberOfColumns(3);
+        setViewWidth(deviceWidth);
+      }
+    });
+    return () => {
+      Orientation.removeDeviceOrientationListener();
+    };
+  }, []);
 
   useEffect(() => {
     const apiResponse = fetchData() as ApiDataModal;
@@ -88,17 +112,25 @@ const Home = () => {
         <FlatList
           data={filteredData}
           extraData={filteredData}
-          numColumns={3}
+          numColumns={numberOfColumns}
           contentContainerStyle={styles.contentContainer}
           showsVerticalScrollIndicator={false}
           renderItem={({item, index}) => {
-            return <MovieView movieObject={item} index={index} />;
+            return (
+              <MovieView
+                movieObject={item}
+                index={index}
+                numberOfColumns={numberOfColumns}
+                viewWidth={viewWidth}
+              />
+            );
           }}
           onEndReached={onEndReached}
           onEndReachedThreshold={0.4}
           ListEmptyComponent={() => (
             <Text style={styles.noResultsText}>No results</Text>
           )}
+          key={numberOfColumns}
         />
       </TouchableWithoutFeedback>
     </View>

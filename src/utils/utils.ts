@@ -14,4 +14,6 @@ export const respHeight = (height: number) => {
 
 export const deviceWidth = Dimensions.get('screen').width;
 
+export const deviceHeight = Dimensions.get('screen').height;
+
 export const statusBarHeight = getStatusBarHeight();
